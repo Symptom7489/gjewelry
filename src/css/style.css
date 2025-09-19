@@ -40,3 +40,13 @@ navbar.is-dark .navbar-item:hover {
 .navbar.is-dark .navbar-item:hover .title {
     color: hsl(0, 0%, 21%) !important; /* This is Bulma's 'is-dark' color */
 }
+
+
+/* Modal Transition */
+.modal {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.modal-content img {
+    border-radius: 5px;
+}

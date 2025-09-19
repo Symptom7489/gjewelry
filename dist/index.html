@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <title>G Jewelry</title>
     <link rel="stylesheet" href="/node_modules/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -55,11 +56,32 @@
   </div>
 </div>
 
-<div id="gallery" class="container py-6">
+<div id="gallery" class="container py-6 has-background-darker-grey">
   <h1 class="title is-2 has-text-centered">Our Work</h1>
   <div class="columns is-multiline mt-5">
     
+      <div class="column is-one-third">
+        <div class="card is-fullheight">
+          <a class="card-image" data-modal-target="image-modal" href="#">
+            <figure class="image is-4by3">
+              <img src="/images/36d5cd17-cf21-40ee-a46e-20fcb4095165.webp" alt="">
+            </figure>
+          </a>
+
+        </div>
+      </div>
+    
   </div>
+</div>
+
+<div id="image-modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <img src="#" alt="">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
 </div>
 
 <div id="contact" class="container py-6">
@@ -121,6 +143,41 @@
             });
         }
     });
+</script>
+
+<script>
+    // Get all the image cards
+    const galleryItems = Array.from(document.querySelectorAll('.card-image'));
+    // Get the modal and the close button
+    const modal = document.getElementById('image-modal');
+    const modalImage = modal.querySelector('img');
+    const closeButton = modal.querySelector('.modal-close');
+
+    // Handle clicks on the gallery cards
+    galleryItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const fullImageUrl = item.querySelector('img').src;
+            const imageAlt = item.querySelector('img').alt;
+
+            modalImage.src = fullImageUrl;
+            modalImage.alt = imageAlt;
+            modal.classList.add('is-active');
+        });
+    });
+
+    // Handle clicks on the close button
+    closeButton.addEventListener('click', () => {
+        modal.classList.remove('is-active');
+    });
+
+    // Also close the modal when clicking the background
+    modal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-background')) {
+        modal.classList.remove('is-active');
+      }
+    });
+
 </script>
 </body>
 </html>

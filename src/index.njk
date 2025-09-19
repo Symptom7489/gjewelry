@@ -17,27 +17,32 @@ layout: "base.njk"
   </div>
 </div>
 
-<div id="gallery" class="container py-6">
+<div id="gallery" class="container py-6 has-background-darker-grey">
   <h1 class="title is-2 has-text-centered">Our Work</h1>
   <div class="columns is-multiline mt-5">
     {% for item in collections.gallery %}
       <div class="column is-one-third">
         <div class="card is-fullheight">
-          <div class="card-image">
+          <a class="card-image" data-modal-target="image-modal" href="#">
             <figure class="image is-4by3">
-              <img src="{{ item.data.image }}" alt="{{ item.data.title }}">
+              <img src="{{ item.data.image }}" alt="{{ item.data.alt }}">
             </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4">{{ item.data.title }}</p>
-              <p class="subtitle is-6">{{ item.data.description }}</p>
-            </div>
-          </div>
+          </a>
+
         </div>
       </div>
     {% endfor %}
   </div>
+</div>
+
+<div id="image-modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p class="image">
+      <img src="#" alt="">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
 </div>
 
 <div id="contact" class="container py-6">
