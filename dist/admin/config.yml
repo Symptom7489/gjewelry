@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: Symptom7489/gjewelry.git
+
+publish_mode: editorial_workflow # Enable draft, review, and publish workflow
+media_folder: "src/images" # Location where images will be saved
+public_folder: "/images" # The path to the images on the live site
+
+collections:
+  - name: "gallery" # A friendly name for the collection
+    label: "Gallery Items" # A label in the CMS UI
+    folder: "src/gallery" # The folder where the CMS will store the files
+    create: true # Allow users to create new items
+    slug: "{{title | slug}}" # The file path will be based on the title
+    fields: # The fields for each gallery item
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Image", name: "image", widget: "image", required: true}
+      - {label: "Description", name: "description", widget: "markdown", required: false}

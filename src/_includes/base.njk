@@ -11,15 +11,76 @@
         <h1>{{ title }}</h1>
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">About</a></li>
-                <li><a href="/gallery/">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        {{ content | safe }}
+
+        <div id="about" class="container my-6">
+        <div class="columns is-centered">
+            <div class="column is-two-thirds">
+            <h1 class="title">About Grayson Caroll</h1>
+            <p>
+                Grayson Caroll is a second-generation local jeweler dedicated to craftsmanship and quality.
+            </p>
+            <p class="mt-4">
+                His work combines traditional techniques with modern design, resulting in pieces that are both unique and elegant.
+            </p>
+            </div>
+        </div>
+        </div>
+
+        <hr>
+
+        <div id="gallery" class="container my-6">
+        <h1 class="title has-text-centered">Our Work</h1>
+        <div class="columns is-multiline">
+            {% for item in collections.gallery %}
+            <div class="column is-one-third">
+                <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                    <img src="{{ item.data.image }}" alt="{{ item.data.title }}">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media-content">
+                    <p class="title is-4">{{ item.data.title }}</p>
+                    <p class="subtitle is-6">{{ item.data.description }}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+
+        <hr>
+
+        <div id="contact" class="container my-6">
+        <div class="columns is-centered">
+            <div class="column is-two-thirds">
+            <h1 class="title">Contact Us</h1>
+            <form netlify>
+                <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Your Name" name="name">
+                </div>
+                </div>
+                <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link" type="submit">Submit</button>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
     </main>
 
     <footer>
