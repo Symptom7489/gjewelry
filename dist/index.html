@@ -3,72 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>G Jewelry</title>
-     <link rel="stylesheet" href="/node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="/node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>G Jewelry</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header class="section">
+
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+            <h1 class="title is-4 has-text-light">G Jewelry</h1>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+            <a href="#about" class="navbar-item has-text-light">
+                About
+            </a>
+            <a href="#gallery" class="navbar-item has-text-light">
+                Gallery
+            </a>
+            <a href="#contact" class="navbar-item has-text-light">
+                Contact
+            </a>
+        </div>
+    </div>
+</nav>
+
+</header>
 
     <main>
+        
+<div id="about" class="container py-6">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds has-text-centered">
+      <h1 class="title is-2">About Grayson Caroll</h1>
+      <p class="subtitle is-5 has-text-grey mt-3">
+        Second-generation local jeweler dedicated to craftsmanship and quality.
+      </p>
+      <p class="content is-medium mt-5">
+        Grayson Caroll grew up in his father's workshop, where he developed a deep appreciation for the art of creating timeless jewelry. His work combines traditional techniques with modern design, resulting in pieces that are both unique and elegant.
+      </p>
+    </div>
+  </div>
+</div>
 
-        <div id="about" class="container my-6">
-        <div class="columns is-centered">
-            <div class="column is-two-thirds">
-            <h1 class="title">About Grayson Caroll</h1>
-            <p>
-                Grayson Caroll is a second-generation local jeweler dedicated to craftsmanship and quality.
-            </p>
-            <p class="mt-4">
-                His work combines traditional techniques with modern design, resulting in pieces that are both unique and elegant.
-            </p>
-            </div>
-        </div>
+<div id="gallery" class="container py-6">
+  <h1 class="title is-2 has-text-centered">Our Work</h1>
+  <div class="columns is-multiline mt-5">
+    
+  </div>
+</div>
+
+<div id="contact" class="container py-6">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+      <h1 class="title is-2 has-text-centered">Contact Us</h1>
+      <form netlify class="box mt-5">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Your Name" name="name" required>
+          </div>
         </div>
 
-        <hr>
-
-        <div id="gallery" class="container my-6">
-        <h1 class="title has-text-centered">Our Work</h1>
-        <div class="columns is-multiline">
-            
-        </div>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="Your Email" name="email" required>
+          </div>
         </div>
 
-        <hr>
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Your Message" name="message" required></textarea>
+          </div>
+        </div>
 
-        <div id="contact" class="container my-6">
-        <div class="columns is-centered">
-            <div class="column is-two-thirds">
-            <h1 class="title">Contact Us</h1>
-            <form netlify>
-                <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Your Name" name="name">
-                </div>
-                </div>
-                <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-link" type="submit">Submit</button>
-                </div>
-                </div>
-            </form>
-            </div>
+        <div class="field is-grouped is-justify-content-flex-end">
+          <div class="control">
+            <button class="button is-link" type="submit">Send Message</button>
+          </div>
         </div>
-        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
     </main>
 
-    <footer>
-        <p>&copy; 2025 G Jewelry Recreation</p>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                &copy; 2025 G Jewelry Recreation. All rights reserved.
+            </p>
+        </div>
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($navbarBurgers.length > 0) {
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>

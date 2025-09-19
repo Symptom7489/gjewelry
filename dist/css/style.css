@@ -1,0 +1,42 @@
+:root {
+    /* Define light theme colors */
+    --background-color: hsl(0, 0%, 96%); /* Light Grey */
+    --text-color: hsl(0, 0%, 21%); /* Dark Grey */
+    --section-dark-bg: hsl(0, 0%, 93%);
+    --hover-bg: hsl(0, 0%, 21%);
+    --hover-text: hsl(0, 0%, 96%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Override for dark theme */
+        --background-color: hsl(0, 0%, 21%); /* Dark Grey */
+        --text-color: hsl(0, 0%, 96%); /* Light Grey */
+        --section-dark-bg: hsl(0, 0%, 15%);
+        --hover-bg: hsl(0, 0%, 96%);
+        --hover-text: hsl(0, 0%, 21%);
+    }
+}
+
+navbar.is-dark .navbar-item:hover {
+    background-color: hsl(0, 0%, 96%); /* Bulma's 'is-light' color */
+    color: hsl(0, 0%, 21%) !important; /* The !important rule ensures this color is used */
+}
+
+/* Add this to style the text when not hovering */
+.navbar.is-dark .navbar-item {
+    color: hsl(0, 0%, 96%); /* Bulma's 'is-light' color */
+}
+
+.navbar.is-dark .navbar-brand {
+    color: hsl(0, 0%, 96%); /* Bulma's 'is-light' color */
+}
+
+.navbar.is-dark.navbar-brand:hover {
+    background-color: hsl(0, 0%, 96%); /* Bulma's 'is-light' color */
+    color: hsl(0, 0%, 21%) !important; /* The !important rule ensures this color is used */
+}
+
+.navbar.is-dark .navbar-item:hover .title {
+    color: hsl(0, 0%, 21%) !important; /* This is Bulma's 'is-dark' color */
+}

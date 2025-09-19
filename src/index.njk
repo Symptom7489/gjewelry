@@ -3,10 +3,75 @@ title: G Jewelry
 layout: "base.njk"
 ---
 
-## Welcome to G Jewelry
+<div id="about" class="container py-6">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds has-text-centered">
+      <h1 class="title is-2">About Grayson Caroll</h1>
+      <p class="subtitle is-5 has-text-grey mt-3">
+        Second-generation local jeweler dedicated to craftsmanship and quality.
+      </p>
+      <p class="content is-medium mt-5">
+        Grayson Caroll grew up in his father's workshop, where he developed a deep appreciation for the art of creating timeless jewelry. His work combines traditional techniques with modern design, resulting in pieces that are both unique and elegant.
+      </p>
+    </div>
+  </div>
+</div>
 
-This is the homepage of the G Jewelry website, a recreation of the original.
+<div id="gallery" class="container py-6">
+  <h1 class="title is-2 has-text-centered">Our Work</h1>
+  <div class="columns is-multiline mt-5">
+    {% for item in collections.gallery %}
+      <div class="column is-one-third">
+        <div class="card is-fullheight">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{{ item.data.image }}" alt="{{ item.data.title }}">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media-content">
+              <p class="title is-4">{{ item.data.title }}</p>
+              <p class="subtitle is-6">{{ item.data.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 
-<p>
-  Here, we will add an introduction to the business and a link to the gallery page.
-</p>
+<div id="contact" class="container py-6">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+      <h1 class="title is-2 has-text-centered">Contact Us</h1>
+      <form netlify class="box mt-5">
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Your Name" name="name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="Your Email" name="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea" placeholder="Your Message" name="message" required></textarea>
+          </div>
+        </div>
+
+        <div class="field is-grouped is-justify-content-flex-end">
+          <div class="control">
+            <button class="button is-link" type="submit">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

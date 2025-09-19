@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("node_modules");
     eleventyConfig.addPassthroughCopy("src/images");
     eleventyConfig.addPassthroughCopy("src/admin");
+    eleventyConfig.addPassthroughCopy("src/css");
 
     // Explicitly add the gallery collection
     eleventyConfig.addCollection("gallery", function(collectionApi) {
